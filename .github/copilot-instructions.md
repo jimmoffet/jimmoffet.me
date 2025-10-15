@@ -8,14 +8,29 @@ This is a personal portfolio website for Jim Moffet, built as a static single-pa
 
 **Static HTML site** with no build process—directly deployable to any static host (designed for Cloudflare Pages).
 
-**Core files:**
+**Project structure:**
 
-- `index.html` - Single-page portfolio with all content
-- `js/personal.js` - Animation engine (typewriter effect, color loop)
-- `css/main.css` - All styles including responsive design
-- `css/normalize.css` - CSS reset
-- `fonts/` - Circular Std font family (Bold & Book weights)
-- `images/` - Optimized media (AVIF, WebP, MP4, favicon)
+```
+jimmoffet.me/
+├── public/              # Deployable assets (Cloudflare entry point)
+│   ├── index.html       # Single-page portfolio with all content
+│   ├── css/             # Stylesheets
+│   │   ├── main.css     # All styles including responsive design
+│   │   └── normalize.css # CSS reset
+│   ├── js/              # JavaScript
+│   │   └── personal.js  # Animation engine (typewriter effect, color loop)
+│   ├── fonts/           # Circular Std font family (Bold & Book weights)
+│   └── images/          # Optimized media (AVIF, WebP, MP4, favicon)
+├── docs/                # Documentation
+│   └── VIDEOS.md        # Video optimization guide
+├── .github/             # GitHub configuration
+│   └── copilot-instructions.md
+├── wrangler.jsonc       # Cloudflare Pages configuration
+├── TODO.md              # Project todos
+└── .gitignore           # Git ignore rules
+```
+
+**Deployment:** Cloudflare Pages deploys from `public/` directory via `wrangler.jsonc` configuration.
 
 ## Key Patterns & Conventions
 
@@ -46,7 +61,7 @@ When editing color-related code, prefer setting CSS variables over direct jQuery
 
 ### Typewriter Animation
 
-The homepage features a rotating typewriter effect defined in `personal.js`:
+The homepage features a rotating typewriter effect defined in `public/js/personal.js`:
 
 - Array of 40+ sentence fragments in `sections` variable (lines 25-65)
 - Types out "Jim Moffet is [rotating phrase]"
@@ -57,16 +72,16 @@ The homepage features a rotating typewriter effect defined in `personal.js`:
 
 ### Video Optimization Strategy
 
-The site uses highly-optimized videos per the comprehensive guide in `VIDEOS.md`:
+The site uses highly-optimized videos per the comprehensive guide in `docs/VIDEOS.md`:
 
-**Standard workflow** (from VIDEOS.md):
+**Standard workflow** (from docs/VIDEOS.md):
 
 1. Encode MP4 with H.264 using `fps=24`, `scale=1280:-1`, `-crf 28`, `-tune stillimage`
 2. Optional WebM/VP9 alternate at `-crf 38` with deringing for 20-35% smaller files
 3. Extract first frame as poster in AVIF/WebP/JPEG formats
 4. Version files with `_v1`, `_v2` suffixes for cache busting
 
-**HTML pattern in use** (`index.html` lines 315-330):
+**HTML pattern in use** (`public/index.html` lines 315-330):
 
 ```html
 <div class="stack" id="player">
@@ -79,7 +94,7 @@ The site uses highly-optimized videos per the comprehensive guide in `VIDEOS.md`
 </div>
 ```
 
-**The `.stack` pattern** (main.css lines 309-327):
+**The `.stack` pattern** (public/css/main.css lines 309-327):
 
 - Parent container with `position: relative`
 - Poster image absolutely positioned behind video (`z-index: 0`)
@@ -94,7 +109,7 @@ All raster images follow the "modern formats + fallback" pattern:
 - WebP second (good browser support)
 - GIF/JPEG fallback (universal support)
 
-See `index.html` lines 268-273 for the `<picture>` implementation.
+See `public/index.html` lines 268-273 for the `<picture>` implementation.
 
 ## Developer Workflows
 
@@ -104,18 +119,18 @@ This is a **deploy-as-is** static site. No transpilation, bundling, or preproces
 
 **To develop:**
 
-1. Edit files directly
-2. Open `index.html` in browser (or use `python -m http.server 8000`)
+1. Edit files in `public/` directly
+2. Open `public/index.html` in browser (or use `python -m http.server 8000 --directory public`)
 3. Refresh to see changes
 
 **To deploy:**
 
-- Push to main branch (if connected to Cloudflare Pages)
-- Or copy entire directory to any static host
+- Push to main branch (Cloudflare Pages deploys from `public/` via `wrangler.jsonc`)
+- Or copy `public/` directory contents to any static host
 
 ### Adding New "Selected Works" Entries
 
-Each work is a `<li>` in the `.featuresList` (index.html lines 247-384):
+Each work is a `<li>` in the `.featuresList` (public/index.html lines 247-384):
 
 ```html
 <li>
@@ -133,7 +148,7 @@ Each work is a `<li>` in the `.featuresList` (index.html lines 247-384):
 </li>
 ```
 
-**Color coupling:** The `.infoImgBackground` border/background color is set dynamically by `changebackground()` in personal.js to match the site's current complementary color.
+**Color coupling:** The `.infoImgBackground` border/background color is set dynamically by `changebackground()` in public/js/personal.js to match the site's current complementary color.
 
 ## External Dependencies
 
@@ -141,14 +156,14 @@ Each work is a `<li>` in the `.featuresList` (index.html lines 247-384):
 
 **No other runtime dependencies.** The site includes commented-out references to:
 
-- GSAP/TweenMax (hover animations prototype, lines 290-427 in personal.js)
+- GSAP/TweenMax (hover animations prototype, lines 290-427 in public/js/personal.js)
 - Particles.js background (commented out)
 
 These were removed but hover effect code remains for potential restoration.
 
 ## Browser Compatibility Notes
 
-**Firefox-specific fix** (personal.js line 356):
+**Firefox-specific fix** (public/js/personal.js line 356):
 
 ```javascript
 if (navigator.userAgent.toLowerCase().indexOf("firefox") > -1) {
@@ -169,12 +184,12 @@ CSS handles Firefox rendering differences via `.firefoxFix` class.
 **Update background color timing:**
 
 ```javascript
-// personal.js line 367 - initial delay
+// public/js/personal.js line 367 - initial delay
 setTimeout(..., 2000);
-// personal.js line 370 - interval between changes
+// public/js/personal.js line 370 - interval between changes
 setInterval(changebackground, 20000); // 20 seconds
 ```
 
-**Modify responsive breakpoints:** Check `main.css` - uses viewport units (`vw`, `vh`) extensively instead of pixel breakpoints.
+**Modify responsive breakpoints:** Check `public/css/main.css` - uses viewport units (`vw`, `vh`) extensively instead of pixel breakpoints.
 
-**Add new fonts:** Add `@font-face` declarations in `main.css` (lines 1-21) and place files in `fonts/` directory.
+**Add new fonts:** Add `@font-face` declarations in `public/css/main.css` (lines 1-21) and place files in `public/fonts/` directory.
