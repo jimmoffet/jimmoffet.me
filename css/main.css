@@ -288,6 +288,8 @@ section h4:after {
   left: 9px;
   z-index: 0;
   opacity: 1;
+  background-color: #806f66;
+  border-color: #806f66;
 }
 .infoImgContainer {
   position: relative;
