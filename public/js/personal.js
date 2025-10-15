@@ -252,14 +252,11 @@ function loopColors() {
 	});
 }*/
 
-/* ----------------------- 
-    NOOB SHIT 
--------------------------*/
-
-$(document).ready(function () {
-  /*--------------------
+/*--------------------
 		BACKGROUND STUFF
 	----------------------*/
+
+$(document).ready(function () {
   changebackground();
   setTimeout(function () {
     $("body").removeClass("noTransition");
