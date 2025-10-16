@@ -16,6 +16,7 @@ NC='\033[0m' # No Color
 MAX_WIDTH=1280
 OUTPUT_DIR="public/images"
 TEMP_DIR=$(mktemp -d)
+trap 'rm -rf "$TEMP_DIR"' EXIT
 
 # Function to print colored output
 print_info() {
