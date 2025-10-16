@@ -22,7 +22,11 @@ jimmoffet.me/
 │   ├── fonts/           # Circular Std font family (Bold & Book weights)
 │   └── images/          # Optimized media (AVIF, WebP, MP4, favicon)
 ├── docs/                # Documentation
-│   └── VIDEOS.md        # Video optimization guide
+│   ├── VIDEOS.md        # Video optimization guide
+│   └── IMAGES.md        # Image optimization guide
+├── scripts/             # Utility scripts
+│   ├── prepare-image.sh # Image optimization script
+│   └── README.md        # Scripts documentation
 ├── .github/             # GitHub configuration
 │   └── copilot-instructions.md
 ├── wrangler.jsonc       # Cloudflare Pages configuration
@@ -85,11 +89,11 @@ The site uses highly-optimized videos per the comprehensive guide in `docs/VIDEO
 
 ```html
 <div class="stack" id="player">
-  <video id="vid" src="/images/gsai_v1.mp4" playsinline muted loop autoplay preload="metadata" width="1280">
+  <video id="vid" src="/public/images/gsai_v1.mp4" playsinline muted loop autoplay preload="metadata" width="1280">
   <picture class="poster">
-    <source srcset="/images/gsai_poster.avif" type="image/avif" />
-    <source srcset="/images/gsai_poster.webp" type="image/webp" />
-    <img src="/images/gsai_poster.webp" />
+    <source srcset="/public/images/gsai_poster.avif" type="image/avif" />
+    <source srcset="/public/images/gsai_poster.webp" type="image/webp" />
+    <img src="/public/images/gsai_poster.webp" />
   </picture>
 </div>
 ```
