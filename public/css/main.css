@@ -245,9 +245,11 @@ section h4:after {
 /* -------------------------------
 		 ABOUT
 ----------------------------------*/
+.featureTitle {
+  font-size: 1.8vw;
+}
 .info {
   position: relative;
-  font-size: 14px;
   font-size: 1.3vw;
   line-height: 1.5;
 }
@@ -686,6 +688,10 @@ section h4:after {
     margin-right: 3%;
   }
 
+  .featureTitle {
+    font-size: 2.8vw;
+  }
+
   .info {
     font-size: 2vw;
   }
@@ -715,6 +721,10 @@ section h4:after {
     min-height: 80vh;
     font-size: 11.2vw;
     letter-spacing: -0.45vw;
+  }
+
+  .featureTitle {
+    font-size: 3.8vw;
   }
 
   .info {
@@ -757,8 +767,12 @@ section h4:after {
     overflow: hidden;
   }
 
+  .featureTitle {
+    font-size: 5vw;
+  }
+
   .info {
-    font-size: 16px;
+    font-size: 4vw;
   }
 
   h3 {
