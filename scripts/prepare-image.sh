@@ -40,7 +40,7 @@ check_command() {
 }
 
 # Check required tools
-check_command "convert" "imagemagick"
+check_command "magick" "imagemagick"
 check_command "avifenc" "libavif"
 check_command "cwebp" "webp"
 check_command "cjpeg" "jpeg"
