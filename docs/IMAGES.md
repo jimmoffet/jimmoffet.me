@@ -341,14 +341,19 @@ oxipng -o 6 -i 0 --strip safe icon-24@2x.png
 
 ## Cloudflare Pages Setup
 
-**`_headers` file at project root:**
+**`_headers` file in the `public/` directory (deployment root):**
+
+The `_headers` file must be placed in the `public/` directory since that's configured as the `assets.directory` in `wrangler.jsonc`. Cloudflare Pages will read this file from the deployment root.
 
 ```
 /images/*
   Cache-Control: public, max-age=31536000, immutable
   Access-Control-Allow-Origin: *
   Cross-Origin-Resource-Policy: cross-origin
+  Timing-Allow-Origin: *
 ```
+
+**Note:** All media assets (images, videos, and video posters) are stored in the `/images/` directory, so a single rule covers all of them.
 
 **File naming/versioning:** Include version suffixes (e.g., `_v1`) for cache busting:
 

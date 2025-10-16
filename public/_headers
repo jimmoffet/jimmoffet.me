@@ -1,0 +1,31 @@
+# Cloudflare Pages Custom Headers
+# https://developers.cloudflare.com/pages/configuration/headers/
+
+# Cache images, videos, and posters with immutable cache for 1 year
+# All media assets are stored in /images/ directory
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+  Cross-Origin-Resource-Policy: cross-origin
+  Timing-Allow-Origin: *
+
+# Cache fonts for 1 year
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+  Cross-Origin-Resource-Policy: cross-origin
+
+# Cache CSS and JS for 1 year (use versioning to bust cache)
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML files - short cache with revalidation
+/*.html
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Root HTML
+/
+  Cache-Control: public, max-age=3600, must-revalidate
