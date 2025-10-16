@@ -107,11 +107,11 @@ fi
 # Step 4: Generate JPEG
 print_info "Generating JPEG..."
 if [ "$IMAGE_TYPE" = "screenshot" ] || [ "$IMAGE_TYPE" = "ui" ]; then
-	magick "$TEMP_DIR/source.png" -quality 85 -sampling-factor 2x2 \
-		"$OUTPUT_DIR/${OUTPUT_NAME}.jpg"
+	# Use cjpeg for progressive, optimized JPEGs (UI/text: 1x1 sampling)
+	cjpeg -quality 85 -progressive -optimize -sample 1x1 "$TEMP_DIR/source.png" > "$OUTPUT_DIR/${OUTPUT_NAME}.jpg"
 else
-	magick "$TEMP_DIR/source.png" -quality 80 -sampling-factor 2x2 \
-		"$OUTPUT_DIR/${OUTPUT_NAME}.jpg"
+	# Use cjpeg for progressive, optimized JPEGs (photos: 2x2 sampling)
+	cjpeg -quality 80 -progressive -optimize -sample 2x2 "$TEMP_DIR/source.png" > "$OUTPUT_DIR/${OUTPUT_NAME}.jpg"
 fi
 
 # Clean up
