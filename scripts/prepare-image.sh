@@ -27,10 +27,6 @@ print_error() {
 	echo -e "${RED}✗${NC} $1"
 }
 
-print_warning() {
-	echo -e "${YELLOW}!${NC} $1"
-}
-
 # Function to check if command exists
 check_command() {
 	if ! command -v "$1" &>/dev/null; then
