@@ -89,11 +89,11 @@ The site uses highly-optimized videos per the comprehensive guide in `docs/VIDEO
 
 ```html
 <div class="stack" id="player">
-  <video id="vid" src="/public/images/gsai_v1.mp4" playsinline muted loop autoplay preload="metadata" width="1280">
+  <video id="vid" src="/images/gsai_v1.mp4" playsinline muted loop autoplay preload="metadata" width="1280">
   <picture class="poster">
-    <source srcset="/public/images/gsai_poster.avif" type="image/avif" />
-    <source srcset="/public/images/gsai_poster.webp" type="image/webp" />
-    <img src="/public/images/gsai_poster.webp" />
+    <source srcset="/images/gsai_poster.avif" type="image/avif" />
+    <source srcset="/images/gsai_poster.webp" type="image/webp" />
+    <img src="/images/gsai_poster.webp" />
   </picture>
 </div>
 ```
