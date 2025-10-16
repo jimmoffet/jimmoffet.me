@@ -52,11 +52,16 @@ var beginning = "Jim Moffet is";
 var currentPart = "";
 var interval = 50;
 var opening = false;
+var motionMediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+var shouldReduceMotion = motionMediaQuery.matches;
 
 /* ----------------------- 
     TYPING 
 -------------------------*/
 function writing(text) {
+  if (shouldReduceMotion) {
+    return;
+  }
   lengthSentence = sections[i].sentence.length;
   var body = $("body");
   if (!opening) {
@@ -288,10 +293,36 @@ $(document).ready(function () {
 	----------------------*/
   var firstTimer = 3000;
   var text = $(".jstext");
-  setTimeout(function () {
-    writing(text);
-    //incipit(text);
-  }, firstTimer);
+  if (shouldReduceMotion) {
+    currentPart = beginning + " <br>" + sections[0].sentence;
+    text.html(currentPart);
+    $(".afterTyping").addClass("onScreen");
+  } else {
+    setTimeout(function () {
+      writing(text);
+      //incipit(text);
+    }, firstTimer);
+  }
+
+  if (motionMediaQuery.addEventListener) {
+    motionMediaQuery.addEventListener("change", function (event) {
+      shouldReduceMotion = event.matches;
+      if (shouldReduceMotion) {
+        currentPart = beginning + " <br>" + sections[0].sentence;
+        text.html(currentPart);
+        $(".afterTyping").addClass("onScreen");
+      }
+    });
+  } else if (motionMediaQuery.addListener) {
+    motionMediaQuery.addListener(function (event) {
+      shouldReduceMotion = event.matches;
+      if (shouldReduceMotion) {
+        currentPart = beginning + " <br>" + sections[0].sentence;
+        text.html(currentPart);
+        $(".afterTyping").addClass("onScreen");
+      }
+    });
+  }
   /*setTimeout(function(){
 	}, secondTimer);*/
 

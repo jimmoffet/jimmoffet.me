@@ -60,10 +60,17 @@
     />
   </head>
   <body class="" style="background: #668080">
-    <main>
+    <main id="main-content" role="main">
+      <h1 class="sr-only">Jim Moffet - Multidisciplinary technologist</h1>
       <div class="container">
         <div class="textContainer">
-          <div class="jstext">
+          <div
+            class="jstext"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+            aria-relevant="text"
+          >
             Jim Moffet is <br />
             having fun in spite of the stress
           </div>
@@ -71,7 +78,7 @@
         <div class="afterTyping onScreen">
           <section id="about">
             <div class="shortColumn info">
-              <h4>about Jim</h4>
+              <h2>about Jim</h2>
               <div>
                 Jim is a multidisciplinary technologist, entrepreneur & former
                 civil servant. Co-Founder of YC-backed
@@ -79,6 +86,8 @@
                   href="https://impactive.io"
                   class="loopCol"
                   target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Impactive (opens in new tab)"
                   data-hover="impactive"
                   >Impactive<span class="coloredHover" style="color: #668080"
                     >Impactive</span
@@ -109,7 +118,7 @@
 
           <section id="contact">
             <div class="shortColumn info">
-              <h4>get in touch</h4>
+              <h2>get in touch</h2>
               <a
                 href="mailto:jimmoffet@gmail.com"
                 class="loopCol email"
@@ -136,6 +145,8 @@
                 <a
                   href="https://signal.me/#eu/4tlFGDxb4TZbrNSh49acGATFCVNmO9dIx-ziseMKCUZPPe2-JztL8r8AfvYSnGd1"
                   target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Signal (opens in new tab)"
                   class="loopCol"
                   data-hover="signal"
                   >Signal<span class="coloredHover" style="color: #668080"
@@ -146,6 +157,8 @@
                 <a
                   href="https://www.linkedin.com/in/jamesdavidmoffet/"
                   target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn profile (opens in new tab)"
                   class="loopCol"
                   data-hover="linkedin"
                   >LinkedIn<span class="coloredHover" style="color: #668080"
@@ -158,7 +171,7 @@
 
           <section id="features">
             <div class="shortColumn info">
-              <h4>selected works</h4>
+              <h2>selected works</h2>
               <h3>
                 His work has won multiple awards and been written about in
                 books, magazines and blogs.
@@ -174,7 +187,7 @@
                     <div class="info">
                       September 2025, Nationwide <br /><br />
                       <div class="infoImgContainer">
-                        <div class="infoImgBackground"></div>
+                        <div class="infoImgBackground" aria-hidden="true"></div>
                         <div class="infoImgForeground">
                           <picture>
                             <source
@@ -186,6 +199,8 @@
                               type="image/webp"
                             />
                             <img
+                              loading="lazy"
+                              decoding="async"
                               src="images/actblue_banner.jpg"
                               alt="ActBlue acquires Impactive announcement"
                             />
@@ -212,12 +227,12 @@
                   </li>
                   <li>
                     <div class="featureTitle">
-                      USAi.gov AI Platform launches 🚀
+                      USAi.gov AI platform launches 🚀
                     </div>
                     <div class="info">
                       August 2025, Nationwide <br /><br />
                       <div class="infoImgContainer">
-                        <div class="infoImgBackground"></div>
+                        <div class="infoImgBackground" aria-hidden="true"></div>
                         <div class="infoImgForeground">
                           <picture>
                             <source
@@ -229,6 +244,8 @@
                               type="image/webp"
                             />
                             <img
+                              loading="lazy"
+                              decoding="async"
                               src="images/usai.gif"
                               alt="USAi.gov AI Platform interface"
                             />
@@ -251,14 +268,16 @@
                       products.
                     </div>
                   </li>
+                </div>
+                <div class="row clearfix">
                   <li>
                     <div class="featureTitle">
-                      10x Launches GSAi Platform 🚢
+                      10x launches GSAi platform 🚢
                     </div>
                     <div class="info">
                       March 2025, Nationwide <br /><br />
                       <div class="infoImgContainer">
-                        <div class="infoImgBackground"></div>
+                        <div class="infoImgBackground" aria-hidden="true"></div>
                         <div class="infoImgForeground" style="padding: 5px">
                           <div class="stack" id="player">
                             <video
@@ -270,13 +289,14 @@
                               autoplay
                               preload="metadata"
                               width="1280"
+                              aria-label="GSAi platform demonstration video"
                             >
                               <source
                                 src="/images/gsai_v1.mp4"
                                 type="video/mp4"
                               />
                             </video>
-                            <picture class="poster">
+                            <picture class="poster" aria-hidden="true">
                               <source
                                 srcset="/images/gsai_poster.avif"
                                 type="image/avif"
@@ -286,8 +306,10 @@
                                 type="image/webp"
                               />
                               <img
+                                loading="lazy"
+                                decoding="async"
                                 src="/images/gsai_poster.jpg"
-                                alt="GSAi platform screenshot"
+                                alt=""
                                 width="1280"
                                 height="720"
                               />
@@ -313,8 +335,7 @@
                       number of vendors that prioritize government compliance.
                     </div>
                   </li>
-                  <!-- </div>
-                <div class="row clearfix"> -->
+
                   <li>
                     <div class="featureTitle">
                       Notify.gov launches out of 10x 🎉
@@ -322,7 +343,7 @@
                     <div class="info">
                       2023, Nationwide <br /><br />
                       <div class="infoImgContainer">
-                        <div class="infoImgBackground"></div>
+                        <div class="infoImgBackground" aria-hidden="true"></div>
                         <div class="infoImgForeground">
                           <picture>
                             <source
@@ -334,6 +355,8 @@
                               type="image/webp"
                             />
                             <img
+                              loading="lazy"
+                              decoding="async"
                               src="images/notify.jpg"
                               alt="Notify.gov platform interface"
                             />
@@ -358,14 +381,16 @@
                       beta in 2023 and is live at beta.notify.gov.
                     </div>
                   </li>
+                </div>
+                <div class="row clearfix">
                   <li>
                     <div class="featureTitle">
-                      Impactive’s mobile app white-labeled as Vote Joe 2020 🇺🇸
+                      Impactive app white-labeled as Vote Joe '20 🇺🇸
                     </div>
                     <div class="info">
                       2019, Nationwide <br /><br />
                       <div class="infoImgContainer">
-                        <div class="infoImgBackground"></div>
+                        <div class="infoImgBackground" aria-hidden="true"></div>
                         <div class="infoImgForeground">
                           <picture>
                             <source
@@ -377,6 +402,8 @@
                               type="image/webp"
                             />
                             <img
+                              loading="lazy"
+                              decoding="async"
                               src="images/joe.jpg"
                               alt="Vote Joe app interface"
                             />
@@ -397,18 +424,63 @@
                       candidates, including vice-president, Kamala Harris.
                     </div>
                   </li>
+                  <li>
+                    <div class="featureTitle">
+                      Largest-ever study of friend-to-friend voter mobilization
+                      📋
+                    </div>
+                    <div class="info">
+                      2018, Nationwide <br /><br />
+                      <div class="infoImgContainer">
+                        <div class="infoImgBackground"></div>
+                        <div class="infoImgForeground">
+                          <picture>
+                            <source
+                              srcset="images/study.avif"
+                              type="image/avif"
+                            />
+                            <source
+                              srcset="images/study.webp"
+                              type="image/webp"
+                            />
+                            <img
+                              loading="lazy"
+                              decoding="async"
+                              src="images/study.jpg"
+                              alt="Voter mobilization study results"
+                            />
+                          </picture>
+                        </div>
+                      </div>
+                      During the midterm election cycle in 2018, as Head of
+                      Product at Impactive, Jim was responsible for the
+                      experimental design of a randomized controlled trial with
+                      tens of thousands of participants testing the
+                      effectiveness of the Impactive platform’s core premise of
+                      voter mobilization via digital messages from friends and
+                      acquaintances. Impactive later convened a team of data
+                      scientists from Columbia University to co-author a
+                      scientific paper based on the data collected. The strength
+                      of results demonstrated in the paper led directly to
+                      winning multiple bids for presidential campaign contracts
+                      the following year.
+                    </div>
+                  </li>
                 </div>
               </ul>
             </div>
           </section>
         </div>
         <div class="cheerful">
-          <a href="https://reasonstobecheerful.world/" target="_BLANK"
+          <a
+            href="https://reasonstobecheerful.world/"
+            target="_BLANK"
+            rel="noopener noreferrer"
+            aria-label="Reasons to be Cheerful website (opens in new tab)"
             >Be cheerful.</a
           >
         </div>
       </div>
-      <!--CLOSE CONTAINER -->
     </main>
   </body>
 </html>
