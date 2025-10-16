@@ -69,16 +69,38 @@ a {
   color: white;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+a:focus,
+button:focus,
+video:focus,
+.loopCol:focus {
+  outline: 3px solid #ffffff;
+  outline-offset: 4px;
+}
+
 h3 {
   font-size: 2.6vw;
   line-height: 1.2;
   margin-bottom: 8vh;
 }
 
-h4 {
+section h2 {
   color: rgba(255, 255, 255, 0.75);
   font-size: 13px;
   text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
 }
 
 .container {
@@ -136,11 +158,7 @@ h4 {
 section {
   margin-bottom: 16vh;
 }
-section h4 {
-  margin-bottom: 20px;
-  letter-spacing: 1px;
-}
-section h4:after {
+section h2:after {
   content: url("/images/line.svg");
   position: absolute;
   -webkit-transform: translate(5%, -20%);
@@ -762,7 +780,7 @@ section h4:after {
     width: 100%;
   }
 
-  section h4:after {
+  section h2:after {
     width: 140px;
     overflow: hidden;
   }
@@ -781,6 +799,21 @@ section h4:after {
 
   .jstext {
     padding-right: 0px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .jstext:after {
+    animation: none !important;
   }
 }
 
