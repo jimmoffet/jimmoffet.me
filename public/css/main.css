@@ -38,6 +38,10 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+body {
+  background: #5d131e;
+}
+
 .noTransition {
   -webkit-transition: none;
   -moz-transition: none;
@@ -251,6 +255,7 @@ section h2:after {
   position: absolute;
   left: 0;
   z-index: -1;
+  color: #5d131e;
 }
 
 /* -------------------------------
@@ -308,8 +313,8 @@ section h2:after {
   left: 9px;
   z-index: 0;
   opacity: 1;
-  background-color: #806f66;
-  border-color: #806f66;
+  background-color: #135d52;
+  border-color: #135d52;
 }
 .infoImgContainer {
   position: relative;
@@ -457,6 +462,8 @@ section h2:after {
   top: 0;
   left: 0;
   z-index: 100;
+  background: #5d131e;
+  color: #135d52;
   visibility: hidden;
   -webkit-transition:
     background 20s linear,
